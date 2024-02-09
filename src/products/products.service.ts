@@ -8,6 +8,7 @@ import { PaginationDto } from 'src/common/dtos/pagination.dto';
 import { validate as isUUID } from 'uuid'
 import { ProductImage } from './entities';
 import { User } from 'src/auth/entities/user.entity';
+import { ProductResponse } from './interfaces/Product-response.interface';
 
 @Injectable()
 export class ProductsService {
@@ -23,7 +24,7 @@ export class ProductsService {
   ) { }
 
 
-  async create(createProductDto: CreateProductDto, user: User) {
+  async create(createProductDto: CreateProductDto, user: User): Promise<ProductResponse> {
     try {
       const { images = [], ...productDetails } = createProductDto;
 

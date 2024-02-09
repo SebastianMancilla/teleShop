@@ -12,7 +12,7 @@ export class SeedController {
 
 
   @Get()
-  @Auth(ValidRoles.superUser)
+  @Auth()
   executeSeed() {
     return this.seedService.runSeed();
   }
